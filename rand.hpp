@@ -1,4 +1,4 @@
-#ifndef __RAND_HPP__ 
+#ifndef __RAND_HPP__
 #define __RAND_HPP__
 
 #include "base.hpp"
@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 class Rand : public Base {
-      public: 
+      public:
       Rand() : Base () {
       num = rand() % 100;
       s_num = std::to_string(num);
@@ -16,9 +16,15 @@ class Rand : public Base {
       }
       virtual double evaluate() { return num; }
       virtual std::string stringify() {return s_num;}
+      Base* get_left() {return nullptr;}
+      Base* get_right() {return nullptr;}
+      Iterator* create_iterator() {
+      Iterator* it = new NullIterator(this);
+      return it;
+      }
       private:
       double num;
       std::string s_num;
 };
 
-#endif 
+#endif

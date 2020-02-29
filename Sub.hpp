@@ -3,12 +3,14 @@
 
 #include "op.hpp"
 
-using namespace std; 
+using namespace std;
 
 class Sub : public Base{
 	public:
 		Sub( Base* left, Base* right) : Base()
 		{
+			left_child = left;
+  	  right_child = right;
 			lstring = left->stringify();
 			rstring = right->stringify();
 			ldouble = left -> evaluate();
@@ -22,12 +24,19 @@ class Sub : public Base{
 		{
 			return(lstring + " - " + rstring);
 		}
+		Base* get_left() {return left_child;}
+		Base* get_right() {return right_child;}
+		Iterator* create_iterator() {
+		Iterator* it = new BinaryIterator(this);
+		return it;
+		}
 	private:
 		string lstring;
 		string rstring;
-		double ldouble; 
-		double rdouble; 
+		double ldouble;
+		double rdouble;
+		Base* left_child;
+		Base* right_child;
 };
 
 #endif
-

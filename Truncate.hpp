@@ -16,5 +16,10 @@ class Trunc : public Decorator {
       Op* temp = new Op(value->evaluate());
       return temp->stringify();
     }
+    Base* get_left() {return value;}
+    Base* get_right() {return nullptr;}
+    Iterator* create_iterator() {
+    return new UnaryIterator(this);
+    }
 };
     #endif

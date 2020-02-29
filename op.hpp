@@ -13,6 +13,13 @@ class Op : public Base {
  }
         virtual double evaluate() { return val; }
         virtual std::string stringify() { return str; }
+        Base* get_left() {return nullptr;}
+        Base* get_right() {return nullptr;}
+        Iterator* create_iterator() {
+        Iterator* it = new NullIterator(this);
+        return it;
+        }
+
     protected:
     double val;
     std::string str;

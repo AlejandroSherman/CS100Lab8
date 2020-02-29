@@ -16,5 +16,10 @@ class Paren : public Decorator {
       string result = "(" + value->stringify() + ")";
       return result;
     }
+    Base* get_left() {return value;}
+    Base* get_right() {return nullptr;}
+    Iterator* create_iterator() {
+    return new UnaryIterator(this);
+    }
 };
     #endif

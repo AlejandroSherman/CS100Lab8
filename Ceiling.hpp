@@ -13,5 +13,10 @@ class Ceil : public Decorator {
     Ceil (Base* input) : Decorator() {value = input;}
     double evaluate(){return ceil(value->evaluate());}
     std::string stringify(){};
+    Base* get_left() {return value;}
+    Base* get_right() {return nullptr;}
+    Iterator* create_iterator() {
+    return new UnaryIterator(this);
+    }
 };
     #endif
