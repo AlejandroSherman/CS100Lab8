@@ -3,8 +3,8 @@
 
 #include <stack>
 
-#include "../lab03/base.hpp"
-#include "../lab04/container.hpp"
+#include "base.hpp"
+#include "container.hpp"
 
 class Base;
 
@@ -15,8 +15,8 @@ class Iterator {
         Base* self_ptr;
 
     public:
-        Iterator(Base* ptr) { 
-            this->self_ptr = ptr; 
+        Iterator(Base* ptr) {
+            this->self_ptr = ptr;
         }
 
         virtual void first() = 0;
@@ -60,8 +60,8 @@ class NullIterator : public Iterator {
         bool is_done() {
             return true;
         }
-        Base* current() { 
-            return nullptr; 
+        Base* current() {
+            return nullptr;
         }
 };
 
