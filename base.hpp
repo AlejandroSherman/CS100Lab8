@@ -3,6 +3,9 @@
 
 #include <string>
 #include <math.h>
+#include "iterator.hpp"
+
+class Iterator;
 
 class Base {
     public:

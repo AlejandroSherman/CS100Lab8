@@ -6,10 +6,22 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(lab
   main.cpp
+  container.cpp
+  ListContainer.cpp
+  VectorContainer.cpp
+  preorder_iterator.cpp
+  unary_iterator.cpp
+  binary_iterator.cpp
 )
 
 ADD_EXECUTABLE(test
 	unit_test.cpp
+  container.cpp
+  ListContainer.cpp
+  VectorContainer.cpp
+  preorder_iterator.cpp
+  unary_iterator.cpp
+  binary_iterator.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

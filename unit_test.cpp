@@ -12,13 +12,13 @@
 //#include "ListContainer_test.hpp"
 //#include "SelectionSort_test.hpp"
 //#include "BubbleSort_test.hpp"
-#include "Decorator.hpp"
-#include "Ceiling_test.hpp"
-#include "Floor_test.hpp"
-#include "Abs_test.hpp"
-#include "Truncate_test.hpp"
-#include "Parenthesies_test.hpp"
-#include "Mixed_test.hpp"
+// #include "Decorator.hpp"
+// #include "Ceiling_test.hpp"
+// #include "Floor_test.hpp"
+// #include "Abs_test.hpp"
+// #include "Truncate_test.hpp"
+// #include "Parenthesies_test.hpp"
+// #include "Mixed_test.hpp"
 //TEST(OpTest, eight){
   // Op* op1 = new Op (8);
   // EXPECT_EQ(op1->stringify, "8");
