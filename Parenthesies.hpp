@@ -3,7 +3,8 @@
 
 #include "base.hpp"
 #include "Decorator.hpp"
-
+#include "iterator.hpp"
+#include "visitor.hpp"
 
 class Base;
 
@@ -20,6 +21,9 @@ class Paren : public Decorator {
     Base* get_right() {return nullptr;}
     Iterator* create_iterator() {
     return new UnaryIterator(this);
+    }
+    void accept(CountVisitor* vis) {
+    vis->visit_paren();
     }
 };
     #endif

@@ -4,6 +4,8 @@
 #include "op.hpp"
 
 using namespace std;
+#include "iterator.hpp"
+#include "visitor.hpp"
 
 class Sub : public Base{
 	public:
@@ -30,6 +32,9 @@ class Sub : public Base{
 		Iterator* it = new BinaryIterator(this);
 		return it;
 		}
+		void accept(CountVisitor* vis) {
+    vis->visit_sub();
+    }
 	private:
 		string lstring;
 		string rstring;

@@ -4,6 +4,8 @@
 #include "op.hpp"
 #include <iostream>
 #include <string>
+#include "iterator.hpp"
+#include "visitor.hpp"
 
 class Mult : public Base {
     public:
@@ -22,6 +24,9 @@ class Mult : public Base {
       Iterator* create_iterator() {
       Iterator* it = new BinaryIterator(this);
       return it;
+      }
+      void accept(CountVisitor* vis) {
+      vis->visit_mult();
       }
   private:
     std::string lhs;

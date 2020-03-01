@@ -4,6 +4,9 @@
 #include <math.h>
 #include "op.hpp"
 using namespace std;
+#include "iterator.hpp"
+#include "visitor.hpp"
+
 class Pow : public Base
 {
 	public:
@@ -30,6 +33,9 @@ class Pow : public Base
 		Iterator* it = new BinaryIterator(this);
 		return it;
 		}
+		void accept(CountVisitor* vis) {
+    vis->visit_pow();
+    }
 	private:
 		string lstring;
 		string rstring;

@@ -2,6 +2,10 @@
 #define __OP_HPP__
 
 #include "base.hpp"
+#include "iterator.hpp"
+#include "visitor.hpp"
+#include "iterator.hpp"
+#include "visitor.hpp"
 
 class Op : public Base {
     public:
@@ -18,6 +22,9 @@ class Op : public Base {
         Iterator* create_iterator() {
         Iterator* it = new NullIterator(this);
         return it;
+        }
+        void accept(CountVisitor* vis) {
+        vis->visit_op();
         }
 
     protected:

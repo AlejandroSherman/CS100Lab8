@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include "iterator.hpp"
+#include "visitor.hpp"
 
 class Rand : public Base {
       public:
@@ -21,6 +23,9 @@ class Rand : public Base {
       Iterator* create_iterator() {
       Iterator* it = new NullIterator(this);
       return it;
+      }
+      void accept(CountVisitor* vis) {
+      vis->visit_rand();
       }
       private:
       double num;

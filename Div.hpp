@@ -3,6 +3,9 @@
 
 #include "op.hpp"
 using namespace std;
+#include "iterator.hpp"
+#include "visitor.hpp"
+
 class Div : public Base {
 	public:
 		Div( Base* left, Base* right) : Base()
@@ -28,6 +31,9 @@ class Div : public Base {
 		Iterator* it = new BinaryIterator(this);
 		return it;
 		}
+		void accept(CountVisitor* vis) {
+		vis->visit_div();
+	  }
 	private:
 		string lstring;
 		string rstring;

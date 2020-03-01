@@ -19,6 +19,7 @@
 // #include "Truncate_test.hpp"
 // #include "Parenthesies_test.hpp"
 // #include "Mixed_test.hpp"
+#include "visitor_test.hpp"
 //TEST(OpTest, eight){
   // Op* op1 = new Op (8);
   // EXPECT_EQ(op1->stringify, "8");
