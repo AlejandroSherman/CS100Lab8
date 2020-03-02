@@ -33,12 +33,12 @@ int main() {
   Op* op6 = new Op(6);
 
   Sub* sub1 = new Sub(op2, op1);
-  Paren* p1 = new Paren(sub1);	
+  Paren* p1 = new Paren(sub1);
 
-  Add* add1 = new Add(op6, op3); 
-  Paren* p2 = new Paren(add1); 
-  Mult* mult1 = new Mult(p1, p2); 
-  Trunc* t1 = new Trunc(sub1); 
+  Add* add1 = new Add(op6, op3);
+  Paren* p2 = new Paren(add1);
+  Mult* mult1 = new Mult(p1, p2);
+  Trunc* t1 = new Trunc(sub1);
 
   Sub* sub2 = new Sub(mult1, t1);
 
@@ -50,14 +50,35 @@ int main() {
   Sub* test = new Sub(first, second);
   cout << "Result: " << test->stringify() << " = " <<  test->evaluate() << endl;
 	cout << "PreOrder traversal:" << endl;
-    cout << "Stringify first: " << first->stringify() << endl << endl;  
-    cout << "Stringify first: " << second->stringify() << endl << endl;
+    cout << "Stringify first: " << first->stringify() << endl << endl;
+    cout << "Stringify second: " << second->stringify() << endl << endl;
 	PreorderIterator* pre_it = new PreorderIterator(test);
 	for(pre_it->first(); !pre_it->is_done(); pre_it->next()) {
 		cout << pre_it->current()->stringify();
 		cout << endl;
 	}
 
+  cout << "End of sequence" << endl;
+  cout << "Number of occurances in the tree:" << endl;
+
+  CountVisitor *cv = new CountVisitor();
+  pre_it->first();
+	while(pre_it->is_done() == false){
+	    pre_it->current()->accept(cv);
+	    pre_it->next();
+	}
+  cout << "Ops:" << cv->op_count() << endl;
+  cout << "Rands:" << cv->rand_count() << endl;
+  cout << "Adds:" << cv->add_count() << endl;
+  cout << "Subs:" << cv->sub_count() << endl;
+  cout << "Mults:" << cv->mult_count() << endl;
+  cout << "Divs:" << cv->div_count() << endl;
+  cout << "Pows:" << cv->pow_count() << endl;
+  cout << "Ceils:" << cv->ceil_count() << endl;
+  cout << "Floors:" << cv->floor_count() << endl;
+  cout << "Abs:" << cv->abs_count() << endl;
+  cout << "Parens:" << cv->paren_count() << endl;
+  cout << "Truncs:" << cv->trunc_count() << endl;
 
 return 0;
 };
